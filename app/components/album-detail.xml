@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns="http://schemas.nativescript.org/tns.xsd">
+    <StackLayout class="p-4">
+        <!-- 封面和基本信息 -->
+        <Image src="{{ selectedAlbum.coverUrl }}" class="w-full h-64 rounded-lg shadow-lg" />
+        <StackLayout class="mt-4 mb-6">
+            <Label text="{{ selectedAlbum.title }}" class="text-2xl font-bold" />
+            <Label text="{{ selectedAlbum.artist }}" class="text-lg text-gray-600" />
+            <Label text="{{ selectedAlbum.releaseDate }}" class="text-sm text-gray-500" />
+            
+            <!-- 标签展示 -->
+            <FlexboxLayout class="mt-2 flex-wrap">
+                <Label text="{{ tag }}" class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2 mb-2" 
+                       repeat="{{ selectedAlbum.tags }}" />
+            </FlexboxLayout>
+        </StackLayout>
+        
+        <!-- 曲目列表 -->
+        <Label text="曲目列表" class="text-xl font-bold mb-2" />
+        <ListView items="{{ selectedAlbum.tracks }}" height="auto" class="mb-4">
+            <ListView.itemTemplate>
+                <GridLayout rows="auto, auto" columns="*, auto" class="p-3 border-b border-gray-200">
+                    <Label text="{{ title }}" row="0" col="0" class="text-lg font-medium" />
+                    <Label text="{{ duration }}" row="0" col="1" class="text-sm text-gray-500" />
+                    
+                    <!-- 创作信息 -->
+                    <StackLayout row="1" col="0" colSpan="2" class="mt-1" visibility="{{ credits ? 'visible' : 'collapsed' }}">
+                        <Label text="{{ '原曲：' + credits.originalSong + ' - ' + credits.originalArtist }}" 
+                               class="text-xs text-gray-600" visibility="{{ credits.originalSong ? 'visible' : 'collapsed' }}" />
+                        <Label text="{{ '作词/演唱/混音：' + credits.lyrics }}" 
+                               class="text-xs text-gray-600" visibility="{{ credits.lyrics ? 'visible' : 'collapsed' }}" />
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+        
+        <!-- 歌词展示 -->
+        <Label text="歌词" class="text-xl font-bold mb-2" />
+        <TextView text="{{ selectedTrack.lyrics }}" 
+                  editable="false" 
+                  class="border-0 bg-gray-50 p-4 rounded-lg text-base leading-relaxed" />
+    </StackLayout>
+</ScrollView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridLayout xmlns="http://schemas.nativescript.org/tns.xsd" rows="auto" columns="*, auto, auto" 
+            class="bg-white p-4 border-t border-gray-200" visibility="{{ currentTrack ? 'visible' : 'collapsed' }}">
+    <StackLayout col="0">
+        <Label text="{{ currentTrack.title }}" class="font-medium" />
+        <Label text="{{ currentTrack.artist }}" class="text-sm text-gray-600" />
+    </StackLayout>
+    
+    <Button col="1" text="{{ isPlaying ? '&#xf04c;' : '&#xf04b;' }}" 
+            class="fas text-lg" tap="{{ togglePlay }}" />
+    <Button col="2" text="&#xf04d;" class="fas text-lg" tap="{{ stop }}" />
+</GridLayout>

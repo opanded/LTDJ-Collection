@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="丁家坡2023" class="bg-indigo-50" />
+    <ScrollView class="bg-slate-50">
+        <StackLayout class="p-4">
+            <!-- 歌曲标题和艺术家 -->
+            <Label text="{{ currentTrack.title }}" 
+                   class="text-2xl font-bold mb-2 text-slate-800" />
+            <Label text="{{ currentTrack.artist }}" 
+                   class="text-lg mb-4 text-slate-600" />
+            
+            <!-- 创作信息 -->
+            <StackLayout class="mb-4 bg-white/80 p-3 rounded-lg shadow-sm">
+                <Label text="{{ '原曲：' + currentTrack.credits.originalSong + ' - ' + currentTrack.credits.originalArtist }}" 
+                       class="text-sm text-slate-600" />
+                <Label text="{{ '作词/演唱/混音：' + currentTrack.credits.lyrics }}" 
+                       class="text-sm text-slate-600" />
+            </StackLayout>
+            
+            <!-- 歌词内容 -->
+            <TextView text="{{ currentTrack.lyrics }}" 
+                      editable="false" 
+                      class="text-base leading-relaxed text-slate-700 bg-white/60 p-4 rounded-lg" 
+                      textWrap="true" />
+        </StackLayout>
+    </ScrollView>
+</Page>

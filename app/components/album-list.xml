@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridLayout xmlns="http://schemas.nativescript.org/tns.xsd" rows="auto, *">
+    <!-- 搜索栏 -->
+    <GridLayout row="0" columns="auto, *" class="p-2 bg-white border-b border-gray-200">
+        <Label col="0" text="&#xf002;" class="fas text-gray-400 ml-2" />
+        <SearchBar col="1" hint="搜索音乐..." text="{{ searchQuery }}" 
+                   class="bg-transparent" />
+    </GridLayout>
+    
+    <!-- 专辑列表 -->
+    <ListView row="1" items="{{ filteredAlbums }}" itemTap="{{ onAlbumTap }}" class="bg-gray-50">
+        <ListView.itemTemplate>
+            <GridLayout columns="80, *" rows="auto" class="p-4 bg-white mb-2 shadow-sm">
+                <Image col="0" src="{{ coverUrl }}" class="w-20 h-20 rounded-lg shadow" />
+                <StackLayout col="1" class="ml-3">
+                    <Label text="{{ title }}" class="text-lg font-bold text-gray-900" />
+                    <Label text="{{ artist }}" class="text-sm text-gray-600" />
+                    <FlexboxLayout class="flex-wrap mt-1">
+                        <Label text="{{ tag }}" class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-1 mb-1"
+                               repeat="{{ tags }}" />
+                    </FlexboxLayout>
+                </StackLayout>
+            </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</GridLayout>

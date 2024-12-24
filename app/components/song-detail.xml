@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns="http://schemas.nativescript.org/tns.xsd">
+    <StackLayout class="p-4">
+        <Label text="{{ track.title }}" class="text-2xl font-bold mb-2" />
+        <Label text="{{ track.artist }}" class="text-lg text-gray-600 mb-2" />
+        
+        <!-- 创作信息 -->
+        <StackLayout class="mb-4 bg-gray-100 p-3 rounded-lg" visibility="{{ track.credits ? 'visible' : 'collapsed' }}">
+            <Label text="{{ '原曲：' + track.credits.originalSong + ' - ' + track.credits.originalArtist }}" 
+                   class="text-sm text-gray-600" visibility="{{ track.credits.originalSong ? 'visible' : 'collapsed' }}" />
+            <Label text="{{ '作词/演唱/混音：' + track.credits.lyrics }}" 
+                   class="text-sm text-gray-600" visibility="{{ track.credits.lyrics ? 'visible' : 'collapsed' }}" />
+        </StackLayout>
+        
+        <!-- 歌词 -->
+        <TextView text="{{ track.lyrics }}" 
+                  editable="false" 
+                  class="text-base leading-relaxed" 
+                  textWrap="true" />
+    </StackLayout>
+</ScrollView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridLayout xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ListView items="{{ tags }}" class="bg-gray-50">
+        <ListView.itemTemplate>
+            <GridLayout columns="*, auto" class="p-4 bg-white mb-2">
+                <StackLayout col="0">
+                    <Label text="{{ name }}" class="text-lg font-bold" />
+                    <Label text="{{ '{{ count }}首歌曲' }}" class="text-sm text-gray-600" />
+                </StackLayout>
+                <Label col="1" text="&#xf054;" class="fas text-gray-400" />
+            </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</GridLayout>
